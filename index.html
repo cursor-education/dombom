@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS Essentials</title>
+  <meta charset="utf-8"/>
+  <link href="css/reset.css" rel="stylesheet" type="text/css"/>
+  <link href="css/style.css" rel="stylesheet" type="text/css"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+  <style>
+    html, body {
+      font-family: 'Roboto', sans-serif;
+      background: #fafafa;
+    }
+
+    table {
+      display: block;
+      width: 100%;
+      overflow: auto;
+      word-break: normal;
+      word-break: keep-all
+    }
+
+    table th {
+      font-weight: bold
+    }
+
+    table th, table td {
+      padding: 6px 13px;
+      border: 1px solid #ddd
+    }
+
+    table tr {
+      background-color: #fff;
+      border-top: 1px solid #ccc
+    }
+
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8
+    }
+
+    .center > table{
+      margin: 0 auto;
+      width: auto;
+      display: table;
+    }
+
+    td > strong {
+      color: red;
+    }
+
+    .hljs-github .hljs {
+      background: #f0f0f0;
+    }
+
+    .hljs-github .hljs-tag, .hljs-github .hljs-name, .hljs-github .hljs-attribute {
+      color: #0000ff;
+    }
+
+    .hljs-github .hljs-string, .hljs-github .hljs-doctag {
+      color: #ff4e00;
+    }
+
+    .hljs-github .hljs {
+      color: #808080;
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+  <header class="mainheader">
+    <div class="logo">
+      <div class="divider"><a href="../index.html"><img src="Logo.png"></a>
+      </div>
+      <a href="#"><span class="logotext">CURSOR EDUCATION - JS Essentials Lecture</span></a>
+    </div>
+  </header>
+</div>
+
+<!-- ================== Slides ================== -->
+    <textarea id="source">
+
+
+
+class: center, middle
+
+.title[
+# JS Essentials
+]
+
+---
+
+# What is JavaScript?
+
+***JavaScript*** (JS) is a dynamic computer programming language. It is most commonly used as part of
+web browsers, whose implementations allow client-side scripts to interact with the user, control the
+browser, communicate asynchronously, and alter the document content that is displayed.
+
+Javascript also being used in server-side programming, game development and the creation of
+desktop and mobile applications.
+
+
+  
+---
+
+
+
+# What is ECMAScript
+
+***ECMAScript*** is a subset of Javascript. Javascript is basically ECMAScript at it's core but builds
+upon it.
+
+Languages such as ActionScript, JavaScript, JScript all use ECMAScript as its core.
+As a comparison, AS/JS/JScript are 3 different cars, but they all use the same engine.
+
+The history is, Brendan Eich created Mocha which became LiveScript, and later JavaScript. Netscape
+presented Javascript to Ecma, which makes standards and it was renamed to ECMA-262 aka
+ECMAScript.
+
+
+---
+
+
+
+# JavaScript possibilities
+
+- Visual effects (animation)
+- Simple calculations
+- User data validation
+- User data manipulation
+- Data storage (cookies/LocalStorage)
+- Dynamicaly change page structure (DHTML)
+- Get data from server (AJAX)
+
+
+---
+
+# JS file and JS block
+
+- JavaScript block
+
+``` html
+<script>
+    alert(“Hello world!”);
+</script>
+
+```
+- JavaScript file
+
+``` html
+<script src=”script.js”></script>
+
+```
+
+
+
+---
+
+
+
+# JS file and JS block
+
+HTML markup example:
+
+``` html
+<!Doctype html>
+<html>
+<head>
+    <title>JS</title>
+    <script src=”script2.js”></script>
+</head>
+<body>
+    <script>
+        alert(“Hello world!”)
+    </script>
+    <script src=”script2.js”></script>
+</body>
+</html>
+
+```
+
+---
+
+
+# JS in tag attribute
+
+- You can add JS code to tag attribute if you really want it
+
+``` html
+
+<a href="#" onclick="alert('1');">Show me a number</a>
+
+
+```
+
+
+
+---
+
+
+# Expressions and statements
+
+A fragment of code that produces a value is called an expression. If an expression corresponds to a
+sentence fragment, a statement, in JavaScript, corresponds to a full sentence in a human language. A
+program is simply a list of statements.
+
+<pre class="brush: jscript">
+// expression
+2-1
+
+// statement
+var a = 5 + 8;
+</pre>
+
+
+
+---
+
+
+# JS output and debugging
+
+For JavaScript values output you can use “console.log” or “alert” function.
+
+<pre class="brush: jscript">
+console.log(123);
+console.log(123, 456);
+var x = 30;
+console.log("the value of x is", x);
+
+alert(123);
+alert("the value of x is");
+</pre>
+
+You can execute JS directly into console, open dev tools (F12) and go in "Console" tab
+
+![Alt text](assets/console.log.jpg)
+
+---
+
+
+
+You can stop execution of JS in some particular place of code and take a look what is going on there.
+Open dev tools and go in 'Sources' tab
+
+index.html
+``` html
+
+<!Doctype html>
+<html>
+<head>
+    <script src=”script1.js”></script>
+</head>
+...
+</html>
+
+```
+script1.js
+<pre class="brush: jscript">
+var a = 15 + 45;
+var b = 32 + 11;
+var c = a + b; 
+</pre>
+
+![Alt text](assets/debugging.jpg)
+
+---
+ 
+# Variables
+
+To catch and hold values, JavaScript provides a thing called a variable. A variable always has a name,
+and it can point at a value, holding on to it.
+
+<pre class="brush: jscript">
+var a;
+
+var b, c, myVariable;
+
+var _x = 10, $z = 20, myVariable = 30;
+
+var myVariable1 = 10,
+    myVariable2 = 20,
+    myVariable3 = 30;
+
+// myvariable2 != myVariable2
+</pre>
+
+---
+# Interaction with user via ‘prompt’
+
+The prompt() method displays a dialog box that prompts the visitor for input.
+
+Syntax
+
+<pre class="brush: jscript">
+prompt(text, defaultText)
+</pre>
+
+.demo1[
+<table class="table-demo">   
+    <thead>
+        <tr>
+            <th><em>Parameter</em></th>
+            <th><em>Type</em></th>
+            <th><em>Description</em></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>text</td>
+            <td>string</td>
+            <td>Required. The text to display in the dialog box</td>
+        </tr>
+        <tr>
+            <td>defaultText</td>
+            <td>string</td>
+            <td>Optional. The default input text</td>
+        </tr>
+    </tbody>
+</table>
+]
+
+<pre class="brush: jscript">
+var userName =  prompt("what is your name", "Petro");
+</pre>
+
+---
+
+# Keywords and reserved words
+
+Names that have a special meaning, such as var, while, and for may not be used as variable
+names. These are called keywords. There are also a number of words which are 'reserved for use' in
+future versions of JavaScript.
+
+<pre class="brush: jscript">
+break case catch continue debugger default delete
+do else false finally for function if implements
+in instanceof interface let new null package private
+protected public return static switch throw true
+try typeof var void while with yield this
+</pre>
+
+
+---
+# Data Types
+
+## Primitives
+- Boolean
+- Null
+- Undefined
+- Number
+- String
+- Symbol (ES6)
+
+## Objects
+- Plain Object
+- Array
+- Date
+- Map (ES6)
+- WeakMap (ES6)
+- Set (ES6)
+- WeakSet (ES6)
+
+---
+
+# Primitives
+
+Primitives Are Immutable, they cannot be changed. Each change will create new instance of primitive.
+
+## Boolean
+  logical entities `true` or `false`
+## Null
+  In computer science, a null value represents a reference that points, generally intentionally, to a nonexistent or invalid object or address. The meaning of a null reference varies among language implementations.
+
+---
+
+## Undefined
+  each unassigned variable will have value `undefined`
+
+  ```javascript
+  // x has not been declared before
+  if (typeof x === 'undefined') { // evaluates to true without errors
+     // these statements execute
+  }
+
+  if (x === undefined) { // throws a ReferenceError
+
+  }
+  ```
+
+  ```javascript
+  var x;
+  if (typeof x === 'undefined') {
+     // these statements execute
+  }
+
+  if (x === undefined) {
+     // these too
+  }
+  ```
+---
+
+## Number
+
+  According to the ECMAScript standard, there is only one number type: the double-precision 64-bit binary format IEEE 754 value (number between `-(253 -1)` and `253 -1`). There is no specific type for integers. In addition to being able to represent floating-point numbers, the number type has three symbolic values: `+Infinity`, `-Infinity`, and `NaN` (not-a-number).
+
+  To check for larger or smaller values than `+/-Infinity`, you can use the constants `Number.MAX_VALUE` or `Number.MIN_VALUE` and starting with ECMAScript 6, you are also able to check if a number is in the double-precision floating-point number range using `Number.isSafeInteger()` as well as `Number.MAX_SAFE_INTEGER` and `Number.MIN_SAFE_INTEGER`. Beyond this range, numbers in JavaScript are not safe anymore.
+
+  ```javascript
+  > 42 / +0
+  Infinity
+  > 42 / -0
+  -Infinity
+  ```
+---
+
+## String
+
+  JavaScript's String type is used to represent textual data. It is a set of "elements" of 16-bit unsigned integer values. Each element in the String occupies a position in the String. The first element is at index `0`, the next at index `1`, and so on. The length of a String is the number of elements in it.
+
+  ```javascript
+  var str = "";
+  var str1 = '';
+  var str2 = 'string';
+
+  str2[0]; // character 's'
+  str2.length; // 6
+  ```
+---
+
+## Plain Object
+
+  ```javascript
+  var object = {};
+  var object1 = new Object();
+
+  // assign property
+  object.propA = 1;
+  object['propB'] = 1;
+
+  // access property
+  object.propA
+  object.propB
+
+  // delete property
+  delete object.propA
+  delete object.propB
+
+  ```
+
+---
+### Enumerate the properties of an object
+ there are couple of native ways to list/traverse object properties:
+### for...in 
+  ```javascript
+  var obj = {a:1, b:2, c:3};
+      
+  for (var prop in obj) {
+    console.log("obj." + prop + " = " + obj[prop]);
+  }
+  // Output:
+  // "obj.a = 1"
+  // "obj.b = 2"
+  // "obj.c = 3"
+  ```
+### Object.keys(o)
+This method returns an array with all the own  (not in the prototype chain) enumerable properties' names ("keys") of an object o. 
+```javascript
+console.log(Object.keys(obj)); // ["a", "b", "c"] 
+```
+---
+## Array
+
+  Array is a list of values with 0 based index.
+
+  ```javascript
+  var arr = [];
+
+  // array can hold any type of values
+  arr.push(1);
+  arr.push({});
+  arr.push([]);
+  arr.push(true);
+
+  arr.length // 4
+
+  // access to values is 0 based index
+  arr[0] // 1
+  ```
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+---
+### indexOf() 
+Method which returns the first (least) index of an element within the array equal to the specified value, or -1  if none is found.
+```javascript
+var arr = [2, 9, 5, 9]; 
+arr.indexOf(2); // 0 
+arr.indexOf(7); // -1
+arr.indexOf(9); // 1
+
+if (a.indexOf(7) === -1) {
+  // element doesn't exist in array
+}
+```
+### join()
+Join the elements of an array into a string: 
+```javascript
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+var energy = fruits.join(); // "Banana,Orange,Apple,Mango"
+var anotherEnergy = fruits.join('+'); // "Banana+Orange+Apple+Mango"
+```
+---
+# Date
+
+  ```javascript
+  var date = new Date(); // current date
+  var now = Date.now() // current date as milliseconds
+  ```
+https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Date
+---
+# Conditional execution
+
+In conditional execution  we choose between two different routes based on a boolean value.
+
+
+<div id="conditional_execution"  markdown="1">
+    ![conditional_execution](assets/conditional_execution.jpeg)
+</div>
+Conditional execution is written with the if keyword in JavaScript. In the simple case, we just want some code to be executed if, and only if, a certain condition holds. 
+
+---
+
+
+# if
+
+<pre class="brush: jscript">
+    if ([expression]) {
+        [statement]
+    }
+
+
+    var a = 10; 
+    if (a > 3) { 
+        console.log(‘it is true’) 
+    }
+
+
+    // Bad style, always use braces
+    if (a > 5) console.log(‘it is true’); 
+
+    var user = false;
+    if (user) {
+        console.log(‘hello dear user’);
+    } else {
+        console.log(‘please signIn’);
+    }
+</pre>
+
+---
+
+
+# if. Always use braces!
+
+<pre class="brush: jscript">
+    var i = 1,
+        j = 1,
+        k = 2;
+
+    // developer doesn't use braces
+    if (i == j)
+        if (j == k)
+            alert("i is the same as k");
+    else
+        alert("i isn't the same as j");
+
+
+    // as a result, code works wrong
+    if (i == j) {
+        if (j == k) {
+            alert("i is the same as k");
+        }
+        else {
+            alert("i isn't the same as j"); // OOPS!
+        }
+    }
+</pre>
+
+---
+
+
+# if, without if
+
+<pre class="brush: jscript">
+    var i = 1,
+        j = 5,
+        result;
+
+    // bad approach, try to avoid it
+    if (i != j) {
+        result = true;
+    } else {
+        result = false;
+    }
+
+    // the same, but easier
+    result = i != j;
+</pre>
+
+---
+
+
+# Ternary
+
+<pre class="brush: jscript">
+
+    var salary = 90000,
+        reaction = '';
+
+    // To define reaction we can use simple if statement
+    if (salary > 50000) {
+        reaction = 'Not bad!';
+    } else {
+        reaction = 'WTF?!!';
+    }
+
+
+    // But I'd rather use this one
+    reaction = a > 50000 ? 'Not bad!' : 'WTF?!!';
+
+</pre>
+
+---
+
+# else if 
+Use the else if statement to specify a new condition if the first condition is false.
+
+<pre class="brush: jscript">   
+    if(city === "Lviv"){
+       console.log("Hi Lviv")
+    } else if (city === "Kiev"){
+        console.log("Hi Kiev")
+    } else if(city === "Ternopil") {
+         console.log("Hi Ternopil")
+    } else {
+         console.log("Hi Unknown city")
+    }
+    
+</pre>
+
+---
+
+# switch
+
+<pre class="brush: jscript">
+    switch (city) {
+        case "Lviv" :
+            console.log("Hi Lviv");
+            break;
+        case "Kiev" :
+            console.log("Hi Kiev");
+            break;
+        case "Ternopil" :
+            console.log("Hi Ternopil");
+            break;
+        default:
+            console.log("Hi Unknown city");
+            break; 
+    }
+    
+</pre>
+You may put any number of case labels inside the block opened by switch. The program will jump to the label that corresponds to the value that switchwas given, or to default if no matching value is found. 
+
+
+---
+
+# while
+
+<pre class="brush: jscript">
+    var i = 0; 
+    while (i < 10) {  
+        console.log(i);  
+        i++; 
+    } 
+    console.log(i);
+</pre>
+
+
+---
+
+
+# do while
+
+<pre class="brush: jscript">
+    var i = 0; 
+    do {  
+        console.log(i);  
+        i++; 
+    } while (i < 10)
+
+
+    do {  
+        var userName = prompt("Who are you?"); 
+    } while (!userName); 
+
+    console.log(userName);
+</pre>
+
+
+---
+
+
+# for
+
+<pre class="brush: jscript">
+    for ([initialization]; [test]; [increment]){ 
+        [statement] 
+    }
+
+    // the most common use
+    for (var i = 0; i < 10; i++) { 
+        console.log(i); 
+    } 
+
+    console.log(i); //10
+    
+    
+    for (let i = 0; i < 10; i++) { 
+        console.log(i); 
+    } 
+
+    console.log(i); //error  
+
+</pre>
+
+---
+
+
+# Fun with for
+
+<pre class="brush: jscript">
+    // we can move initialization
+    var i = 0;
+
+    for (; i < 10; i++) { 
+        console.log(i); 
+    }
+
+
+    // we can move increment
+    for (; --i;) { 
+        console.log(i); 
+    }
+
+
+    // finally we can remove everything
+    for (;;) {
+        if (i == 0) {
+            console.log(i);
+            break;
+        }
+    } 
+
+</pre>
+
+
+---
+
+
+# break and continue
+
+<pre class="brush: jscript">
+    for (var i = 0; i < 10; i++) {
+
+        console.log(i);
+
+        if(i % 2 == 0) { 
+            continue; 
+        } 
+        console.log(i); 
+        if(i == 9) { 
+            break; 
+        }
+    }   
+    console.log(i); //9
+</pre>
+---
+
+# Functions
+
+Function is a "subprogram" that can be *called* by code external (or internal in the case of recursion) to the function.
+Like the program itself, a function is composed of a sequence of statements called the *function body*.
+Values can be *passed* to a function, and the function can *return* a value.
+
+---
+
+# Declare function
+
+### Function declaration
+```
+function myVeryUsefulFunction() {
+  // function body
+  console.log('meow');
+}
+```
+
+### Function expression
+```
+var myVeryUsefulFunction = function() {
+  // function body
+  console.log('meow');
+};
+
+```
+### Function invocation
+
+```
+myVeryUsefulFunction(); // -> meow
+```
+
+---
+# Anonymous function
+
+Function that has no name is called _anonymous_ function.  
+Sometimes it is called _lambda-function_.
+
+```
+function() {
+  console.log('hi');
+}
+```
+
+---
+# Declaration vs Expression
+
+In fact, function expression is just a creation of a variable setting its 
+value to an unnamed function. Usefull for debugging purposes.
+
+```
+// we can access function's name through special syntax
+var noname = function(){};
+console.log( noname.name ); // -> ""
+
+function hasname(){}
+console.log( hasname.name ); // -> "hasname"
+```
+
+Function declaration can be invoked above declaration itself:
+```
+aboveWeCall(); // -> 'yes we can'
+
+function aboveWeCall(){ console.log('yes we can'); }
+```
+Function expression throws an error in same situation:
+```
+aboveWeCall(); // -> Uncaught TypeError: aboveWeCall is not a function
+
+var aboveWeCall = function(){ console.log('no we can not'); }
+```
+
+---
+# Function arguments
+
+Function can accept values as arguments to be used in their bodies.  
+They behave just like regular variables.
+
+```
+function add(one, two) {
+  console.log(one + two);
+}
+
+add(1, 2); // -> 3
+```
+
+---
+# Function arguments (cont.)
+In JavaScript quantity of function arguments is not strict:
+
+```
+// does not throw error for mismatched number of arguments
+add(1, 2, 3, 4, 5, 6, 7); // -> 3
+add(); // -> NaN
+```
+
+Note: If you don't pass explicit value, then value of named argument becomes `undefined`:
+```
+function showArg(arg) {
+  console.log(arg);
+}
+
+showArg(1); // -> 1
+showArg();  // -> undefined
+```
+---
+
+# Function arguments object
+
+You may access all passed values with `arguments` keyword inside of a function.  
+`arguments` is an array like object holding all of the values passed to the function
+
+```
+function showAllArguments() { // no named arguments
+  console.log(arguments);
+  console.log(arguments.length);
+}
+
+add(); // -> {} // -> 0
+add(1, 2); // -> {'0': 1, '1': 2} // -> 2
+```
+
+---
+# Returning a value
+
+Function returns value with `return` keyword.
+
+```
+function greet(name) {
+  var greetMessage = 'Hello, ' + name + '!';
+  return greetMessage;
+}
+
+console.log( greet('JS') ); // 'Hello, JS!'
+```
+
+You may use `return` anywhere in body,  
+but it will stop execution of a function and jump out of it immediately.
+
+```
+function checkUser(login) {
+  if (login == undefined) {
+    return 'You did not specify a login';
+  } else if (login == 'admin') {
+    return 'It is admin';
+  } else if (login == 'user') {
+    return 'It is user';
+  }
+  return 'User is unknown';
+}
+```
+
+---
+# Returning a value (cont.)
+
+If you don't specify `return` explicitly, JS will use `undefined` as a result of function call.
+
+```
+function noReturn() {}
+
+noReturn(); // -> undefined
+```
+
+---
+# Functions are values
+
+In JavaScript, functions are values, that is why function expressions exist.
+
+```
+function multiplier(factor) {
+  return function(number) {
+    return number * factor;
+  };
+}
+
+var twice = multiplier(2);
+console.log( twice(5) ); // -> 10
+
+```
+
+---
+# Functions are values (cont.)
+
+You can pass function in other function.
+
+```
+function callPassedFunction(fn) {
+  fn();
+}
+
+function sayCalled() {
+  console.log('called');
+}
+
+callPassedFunction( sayCalled ); // -> 'called'
+```
+
+---
+# Anonymous functions usage
+
+Often anonymous functions are used as values to other functions. E.g.:
+
+```
+callPassedFunction(function() {
+  console.log('anonymous function called');
+}); // -> 'anonymous function called'
+```
+
+Also, often, anonymous functions are created to be imediately invoked
+
+```
+(function() {
+  console.log('called');
+})(); // -> 'called'
+```
+
+---
+# Scopes
+
+Scope is a block of code where variable can be accessed ("is visible").  
+In JavaScript scope is defined by function.
+
+```
+(function outer() {
+  console.log(x) // -> undefined
+  
+  while ( !x ){
+    var x = 1;
+  }
+  console.log(x); // -> 1
+  
+  inner(); // -> 1
+  
+  function inner() {
+    console.log(x);
+    innerer();
+    
+    function innerer(){
+      var x = 2;
+      console.log(x); // -> 2
+    }
+  }
+})();
+```
+
+---
+# Scopes (cont.)
+
+If you define variable without `var` keyword, it becomes __global__.
+
+```
+function createGlobalVariable() {
+  x = 1;
+}
+
+console.log(x); // -> undefined
+createGlobalVariable();
+console.log(x); // -> 1
+```
+
+It is not recommended to use global variables.  
+They lead to unclear code and may be a source of hard to find errors.
+
+---
+# Scopes (cont.)
+
+To avoid variable names intersections usually self-executed anonymous functions are used:
+
+```
+(function() {
+  var x = 1;
+  console.log(x);
+})();
+
+(function() {
+  var x = 2;
+  console.log(x);
+})();
+```
+Both variables share same name, but are __different__ variables of different scopes.
+
+---
+# Hoisting
+
+Behind the scenes, the __declaration__ of variable is __hoisted__ to the top.  
+Because of hoisting it is recommended to define variables  
+at the top of function, even if they are not used immediately there.
+
+```
+function countProfit(price) {
+  var profit;
+  
+  if ( price >= 100){
+    profit = 10;
+  }
+  
+  return profit;
+}
+```
+
+---
+
+## Additional links
+
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
+- https://toddmotto.com/understanding-javascript-types-and-reliable-type-checking/
+- http://mockaroo.com/
+- http://eloquentjavascript.net/03_functions.html
+- http://code.tutsplus.com/tutorials/javascript-hoisting-explained--net-15092
+- http://www.adequatelygood.com/JavaScript-Scoping-and-Hoisting.html
+
+---
+
+class: center, middle
+#Thank you :)
+
+    </textarea>
+<!-- ================== End of Slides ================== -->
+
+<script src="js/remark-latest.min.js" type="text/javascript"></script>
+<script type="text/javascript">remark.create({highlightStyle: 'github'});</script>
+</body>
+</html>
